@@ -24,4 +24,5 @@
     <string name="btn_puente">Puente</string>
     <string name="btn_servicioPublico">Servicio Público</string>
     <string name="btn_servicio_Privado">Servicio Privado</string>
+    <string name="txt_cuenta">Cuenta</string>
 </resources>
