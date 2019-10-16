@@ -7,41 +7,74 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="558dp">
-
-    </FrameLayout>
+        android:layout_height="338dp"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50px"
+            android:text="@string/txt_titulo"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:layout_marginTop="50px"
+            android:text="@string/txt_bienvenida"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txt_cuenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="50px"
+            android:layout_marginBottom="50px"
+            android:text="@string/txt_cuenta"
+            android:textAlignment="center"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="121dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="50px"
+                android:layout_marginRight="10px"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:background="@color/colorPrimary"
+                android:text="@string/btn_iniciarSesion" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:layout_marginTop="50px"
+                android:layout_marginRight="20px"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:background="@color/colorAccent"
+                android:text="@string/btn_registrarse"
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

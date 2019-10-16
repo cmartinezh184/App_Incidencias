@@ -17,7 +17,7 @@
     <string name="btn_actualizarIncidencia">Actualizar</string>
     <string name="btn_carretera">Carretera</string>
     <string name="btn_municipalidad">Municipalidad</string>
-    <srting name="txt_direccionExacta">Dirección Exacta</srting>
+    <string name="txt_direccionExacta">Dirección Exacta</string>
     <string name="btn_imagen">Imagen</string>
     <string name="txt_detalleIncidente">Detalles</string>
     <string name="btn_registrarIncidente">Registrar Incidente</string>
@@ -25,4 +25,6 @@
     <string name="btn_servicioPublico">Servicio Público</string>
     <string name="btn_servicio_Privado">Servicio Privado</string>
     <string name="txt_cuenta">Cuenta</string>
+    <string name="txt_titulo">Registro de Incidencias</string>
+    <string name="txt_bienvenida">Repositorio de incidencias para los ciudadanos cosarricenses</string>
 </resources>
