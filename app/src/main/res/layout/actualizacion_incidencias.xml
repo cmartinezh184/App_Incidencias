@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="59dp" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="297dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="225px"
+        android:backgroundTint="@android:color/white"
+        android:text="@string/btn_carretera"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="297dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="225px"
+        android:backgroundTint="@android:color/white"
+        android:text="@string/btn_puente"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="297dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="225px"
+        android:backgroundTint="@android:color/white"
+        android:text="@string/btn_servicioPublico"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="225px"
+        android:backgroundTint="@android:color/white"
+        android:text="@string/btn_servicio_Privado"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/botton2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125px"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="Siguiente"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>
