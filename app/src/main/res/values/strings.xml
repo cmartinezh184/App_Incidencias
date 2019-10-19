@@ -23,8 +23,11 @@
     <string name="btn_registrarIncidente">Registrar Incidente</string>
     <string name="btn_puente">Puente</string>
     <string name="btn_servicioPublico">Servicio Público</string>
-    <string name="btn_servicio_Privado">Servicio Privado</string>
+    <string name="btn_servicioPrivado">Servicio Privado</string>
     <string name="txt_cuenta">Cuenta</string>
     <string name="txt_titulo">Registro de Incidencias</string>
     <string name="txt_bienvenida">Repositorio de incidencias para los ciudadanos cosarricenses</string>
+    <string name="txt_opcion">Elija una Opción</string>
+    <string name="btn_incidencias">Incidencias</string>
+    <string name="btn_actualizarIncidencias">Actualizar Incidencia</string>
 </resources>
