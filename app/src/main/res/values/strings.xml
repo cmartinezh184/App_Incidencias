@@ -30,4 +30,5 @@
     <string name="txt_opcion">Elija una Opción</string>
     <string name="btn_incidencias">Incidencias</string>
     <string name="btn_actualizarIncidencias">Actualizar Incidencia</string>
+    <string name="btn_servicio_Privado">Servicio Privado</string>
 </resources>

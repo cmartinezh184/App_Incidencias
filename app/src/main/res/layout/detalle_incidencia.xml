@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        tools:text="Ej: 117410990" />
+        android:text="Ej: 117410990" />
 
     <EditText
         android:id="@+id/editText2"
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            tools:text="Ej: Martinez" />
+            android:text="Ej: Martinez" />
 
         <EditText
             android:id="@+id/editText4"
