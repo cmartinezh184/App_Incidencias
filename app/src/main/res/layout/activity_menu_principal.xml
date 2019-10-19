@@ -68,7 +68,7 @@
                 android:background="#D3D3E4"
                 android:gravity="center|center_vertical"
                 android:text="@string/btn_actualizarIncidencias"
-                android:textColor="#201E1E"
+                android:textColor="#272424"
                 android:translationY="80px" />
         </LinearLayout>
 
