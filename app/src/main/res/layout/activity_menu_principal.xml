@@ -34,20 +34,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="258dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:rotationY="20">
+            android:gravity="center|center_horizontal"
+            android:orientation="horizontal">
 
 
             <ImageButton
-                android:id="@+id/button3"
+                android:id="@+id/btn_incidencias_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
                 android:background="@android:color/transparent"
                 android:gravity="center|center_vertical"
-                android:translationY="100dp"
                 app:srcCompat="@drawable/btn_incidencias" />
 
         </LinearLayout>
@@ -55,18 +51,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="228dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/button4"
+                android:id="@+id/btn_actualizar_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
                 android:layout_marginRight="20px"
                 android:background="@android:color/transparent"
                 android:gravity="center|center_vertical"
-                android:translationY="20dp"
-                android:translationX="28dp"
                 app:srcCompat="@drawable/btn_actualizar" />
 
         </LinearLayout>

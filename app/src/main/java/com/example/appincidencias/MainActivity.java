@@ -9,6 +9,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button registrar;
+    private Button login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         // Creacion de los botones para el cambio de pantalla
-        Button registrar = (Button)findViewById(R.id.button4);
-        Button login = (Button)findViewById(R.id.button3);
+        registrar = (Button)findViewById(R.id.button4);
+        login = (Button)findViewById(R.id.button3);
 
         // Redireccionamiento de los botones a las actividades correspondiedtes
 
