@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/txt_canton_registro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -26,7 +26,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/txt_provincia_registro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100px"
