@@ -48,7 +48,7 @@
                 android:background="@android:color/transparent"
                 android:gravity="center|center_vertical"
                 android:translationY="100dp"
-                app:srcCompat="@drawable/btnIncidencias" />
+                app:srcCompat="@drawable/btn_incidencias" />
 
         </LinearLayout>
 
@@ -67,7 +67,7 @@
                 android:gravity="center|center_vertical"
                 android:translationY="20dp"
                 android:translationX="28dp"
-                app:srcCompat="@drawable/btnActualizar" />
+                app:srcCompat="@drawable/btn_actualizar" />
 
         </LinearLayout>
 
