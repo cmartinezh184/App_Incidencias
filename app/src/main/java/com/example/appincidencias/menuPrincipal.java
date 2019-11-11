@@ -2,15 +2,15 @@ package com.example.appincidencias;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class menuPrincipal extends AppCompatActivity {
 
-    private Button incidencias;
-    private Button actualizar;
+    private ImageButton incidencias;
+    private ImageButton actualizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
