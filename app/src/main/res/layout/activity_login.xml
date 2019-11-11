@@ -65,6 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
+                android:hint="@string/txt_cuenta"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -74,8 +75,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:text="@string/txt_contrasenia" />
+                android:hint="@string/txt_contrasenia"
+                android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/btn_iniciarSesion2"
