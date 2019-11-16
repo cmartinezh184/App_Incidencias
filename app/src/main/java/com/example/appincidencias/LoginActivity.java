@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,25 +24,25 @@ public class LoginActivity extends AppCompatActivity {
 
         this.correo = findViewById(R.id.txt_correo2);
         this.contrasenia = findViewById(R.id.txt_contrasenia2);
+        this.login = findViewById(R.id.btn_iniciarSesion2);
 
-        String correoTexto = correo.getText().toString().trim();
 
-        String regex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         try {
-            if (LogIn(correo.getText().toString(), contrasenia.getText().toString()) && correoTexto.matches(regex)) {
-                login = findViewById(R.id.btn_iniciarSesion2);
-                login.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final String correoTexto = correo.getText().toString().trim();
+                    final String regex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                    if (!correoTexto.matches(regex)) {
+                        Toast.makeText(LoginActivity.this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
+                    } else if (!LogIn(correo.getText().toString(), contrasenia.getText().toString())){
+                        Toast.makeText(LoginActivity.this, "Inicio de sesion fallido", Toast.LENGTH_LONG).show();
+                    } else {
                         startActivity(new Intent(LoginActivity.this, menuPrincipal.class));
                     }
-                });
-            } else if (!correoTexto.matches(regex)) {
-                Toast.makeText(this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, "Inicio de sesion fallido", Toast.LENGTH_LONG).show();
-            }
+                }
+            });
         } catch (Exception e) {
             Toast.makeText(this, "Inicio de sesion fallido", Toast.LENGTH_LONG).show();
         }
