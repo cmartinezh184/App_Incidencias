@@ -137,6 +137,25 @@ public class DBHelper extends SQLiteOpenHelper {
                 "VALUES (116410981, 'Laura','Jimenez','Sanchez', 'Las Juntas de Abangares', 'laurajims@gmail.com', 888888888,'Laurajs')");
         db.execSQL("INSERT INTO Persona (Cedula , Nombre, PrimerApellido, SegundoApellido, DireccionID, Correo,Telefono, Contrasenia ) " +
                 "VALUES (114410971, 'Daniel','Marchena','Cespedes', 'Guácima de Grecia', 'danielmarch@gmail.com', 888888888,'Danielmc')");
+
+
+
+        //Insertar Datos en Incidencias
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (1,1,'Hueco en calle','Escazú, Santa Teresa')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (2,2,'Innundacion en calle','San Jose, Dos Cercas')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (3,3,'Choque en calle','Limon, Cocori')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (4,4,' Puente caido','Cartago, Tres Rios')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (5,5,'Hueco en calle','San Jose, Curridabat')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (6,6,'Hueco en calle','Escazu, Santa Ana')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (7,7,'Vuelco en calle','San Jose, Zapote')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (8,8,'Cables caidos en calle','Perez Zeledon, San Jose')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (9,9,'Presa en calle','San Jose, San Jose')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (10,10,'Innundacion en calle','Guanacaste, Liberia')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (11,11,'Vuelco en calle','San Jose, Calle Blancos')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (12,12,'Hueco en calle','Alajuela, Alajuela')");
+        db.execSQL("INSERT INTO Incidencia (IncidenciaID , UsuarioID, Descripcion, Ubicacion) VALUES (13,13,'Atropello','Desamparados, Gravilias')");
+
+
     }
 
 
