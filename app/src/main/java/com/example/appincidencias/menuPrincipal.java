@@ -24,6 +24,7 @@ public class menuPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Codigo para pasarse a la actividad de incidencias
+
             }
         });
 

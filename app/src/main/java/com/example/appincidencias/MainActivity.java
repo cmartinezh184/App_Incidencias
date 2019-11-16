@@ -6,11 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Button registrar;
     private Button login;
+
+    private EditText Cedula, Nombre, PrimerApellido, SegundoApellido,DireccionID, Correo, Telefono, Contrasenia;
+    private Button agregar, consultar, eliminar;
+    private ListView list_contactos;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
