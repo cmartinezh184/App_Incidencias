@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detalle_incidencia">
 
     <TextView
         android:id="@+id/textView3"
@@ -111,7 +114,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/botton2"
+        android:id="@+id/btn_siguiente_incidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="225px"
