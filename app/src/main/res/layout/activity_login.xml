@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".LoginActivity">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="362dp"
         android:layout_height="520dp"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_margin="20dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/iconoAzul" />
+                    app:srcCompat="@drawable/icono_azul" />
 
                 <TextView
                     android:id="@+id/txt_titulo"
@@ -65,6 +66,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
+                android:hint="@string/txt_cuenta"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -74,8 +76,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:text="@string/txt_contrasenia" />
+                android:hint="@string/txt_contrasenia"
+                android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/btn_iniciarSesion2"
