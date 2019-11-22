@@ -26,8 +26,6 @@ public class LoginActivity extends AppCompatActivity {
         this.contrasenia = findViewById(R.id.txt_contrasenia2);
         this.login = findViewById(R.id.btn_iniciarSesion2);
 
-
-
         try {
             login.setOnClickListener(new View.OnClickListener() {
                 @Override

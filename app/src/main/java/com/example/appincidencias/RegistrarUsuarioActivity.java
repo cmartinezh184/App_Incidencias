@@ -41,13 +41,25 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
 
         registrar = findViewById(R.id.btn_registrarse2);
 
-        //Evento de componente
-        registrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegistrarUsuarioActivity.this, LoginActivity.class));
-            }
-        });
+        try {
+            //Evento de componente
+            registrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final String correoTexto = Correo.getText().toString().trim();
+                    final String regex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                    if (!correoTexto.matches(regex)) {
+                        Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
+                    } else {
+                        startActivity(new Intent(RegistrarUsuarioActivity.this, menuPrincipal.class));
+                        agregar(v);
+                        Toast.makeText(RegistrarUsuarioActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        } catch (Exception e) {
+            Toast.makeText(RegistrarUsuarioActivity.this, "Ha ocurrido un error", Toast.LENGTH_LONG).show();
+        }
     }
 
 

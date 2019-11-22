@@ -2,6 +2,7 @@ package com.example.appincidencias;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,8 @@ public class menuPrincipal extends AppCompatActivity {
         incidencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Codigo para pasarse a la actividad de incidencias
+                startActivity(new Intent(menuPrincipal.this, detalle_incidencia.class));
+
 
             }
         });
@@ -31,7 +33,7 @@ public class menuPrincipal extends AppCompatActivity {
         actualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Codigo para pasarse a la actividad de incidencias
+                startActivity(new Intent(menuPrincipal.this, actualizacion_incidencias.class));
             }
         });
     }

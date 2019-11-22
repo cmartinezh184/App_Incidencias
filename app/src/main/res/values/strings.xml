@@ -31,4 +31,8 @@
     <string name="btn_incidencias">Incidencias</string>
     <string name="btn_actualizarIncidencias">Actualizar Incidencia</string>
     <string name="btn_servicio_Privado">Servicio Privado</string>
+    <string name="btn_siguiente_incidencia">Siguiente</string>
+    <string name="tituloListas">Lista Incidencias</string>
+
 </resources>
+

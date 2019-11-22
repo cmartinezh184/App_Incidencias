@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".menuPrincipal"/>
+        <activity android:name=".detalle_incidencia"/>
+        <activity android:name=".actualizacion_incidencias"/>
+        <activity android:name=".detalle_incidencia2"/>
     </application>
 
 </manifest>
