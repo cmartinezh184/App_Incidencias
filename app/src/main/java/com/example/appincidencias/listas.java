@@ -1,3 +1,5 @@
+package com.example.appincidencias;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -9,8 +11,8 @@ public class listas extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout.activity_main);
-        DBHelper dbHelper = new DBHelper(this);
+        setContentView(R.layout.activity_main);
+        DBHelper dbHelper = new DBHelper(this, "Usuario", null, 1);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if (db != null) {
             // Insert con execSQL
