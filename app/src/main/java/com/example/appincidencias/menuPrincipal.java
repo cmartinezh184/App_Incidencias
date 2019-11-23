@@ -24,7 +24,7 @@ public class menuPrincipal extends AppCompatActivity {
         incidencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(menuPrincipal.this, detalle_incidencia.class));
+                startActivity(new Intent(menuPrincipal.this, listas.class));
 
 
             }

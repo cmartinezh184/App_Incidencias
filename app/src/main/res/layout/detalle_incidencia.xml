@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:text="Datos Personales"
         android:textColor="@android:color/black"
         android:textSize="24sp" />
@@ -19,6 +19,7 @@
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Ej: 117410990"
         android:inputType="number" />
@@ -118,7 +119,7 @@
         android:id="@+id/btn_siguiente_incidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225px"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:text="Siguiente"
         android:textColor="@android:color/white" />
