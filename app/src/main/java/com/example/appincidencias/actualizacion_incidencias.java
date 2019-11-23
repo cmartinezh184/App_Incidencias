@@ -13,7 +13,7 @@ public class actualizacion_incidencias extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actualizacion_incidencias);
+        setContentView(R.layout.lista_incidencias);
 
         btnActualizar = findViewById(R.id.btn_siguiente_incidencia);
 
