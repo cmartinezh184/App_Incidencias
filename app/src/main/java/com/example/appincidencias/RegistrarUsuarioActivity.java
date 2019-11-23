@@ -43,11 +43,11 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     final String correoTexto = Correo.getText().toString().trim();
                     final String telefonoTexto = Telefono.getText().toString();
-                    final String regexCorreo = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                    final String regexTelefono = "^[+]?[0-9]{8,11}$";
-                    if (!correoTexto.matches(regexCorreo) || !telefonoTexto.matches(regexTelefono)) {
+                    final String regexCorreo = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"; // Se valida que el correo tenga la estructura de 'letras'@'letras'.'letras'
+                    final String regexTelefono = "^[+]?[0-9]{8,11}$"; // Se valida que el telefono tenga entre 8 a 11 digitos y solo numeros
+                    if (!correoTexto.matches(regexCorreo) || !telefonoTexto.matches(regexTelefono)) { // Se comparan los valores ingresados con las validaciones de correo y telefono
                         Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
-                    } else {
+                    } else { // Si la validacion es exitosa se registra el usuario
                         startActivity(new Intent(RegistrarUsuarioActivity.this, MenuPrincipalActivity.class));
                         AgregarUsuario(v);
                         Toast.makeText(RegistrarUsuarioActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
