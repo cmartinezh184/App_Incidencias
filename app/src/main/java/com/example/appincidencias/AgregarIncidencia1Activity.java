@@ -44,10 +44,10 @@ public class AgregarIncidencia1Activity extends AppCompatActivity {
 
                     navegar.putExtra("cedula", Integer.parseInt(Cedula.getText().toString()));
 
-                    if (!Provincia.getText().equals("") || !Canton.getText().equals("") || !Distrito.getText().equals("")) {
+                    if (!Provincia.getText().equals("") || !Canton.getText().equals("") || !Distrito.getText().equals("") || !Cedula.getText().equals("")) {
                         startActivity(navegar);
                     } else {
-                        Toast.makeText(AgregarIncidencia1Activity.this, "Ingrese una ubicacion", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AgregarIncidencia1Activity.this, "Debe llenar todos los campos", Toast.LENGTH_LONG).show();
                     }
                 }
             });

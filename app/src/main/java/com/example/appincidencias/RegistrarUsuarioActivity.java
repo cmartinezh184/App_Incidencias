@@ -42,12 +42,14 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     final String correoTexto = Correo.getText().toString().trim();
-                    final String regex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                    if (!correoTexto.matches(regex)) {
+                    final String telefonoTexto = Telefono.getText().toString();
+                    final String regexCorreo = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                    final String regexTelefono = "^[+]?[0-9]{8,11}$";
+                    if (!correoTexto.matches(regexCorreo) || !telefonoTexto.matches(regexTelefono)) {
                         Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
                     } else {
                         startActivity(new Intent(RegistrarUsuarioActivity.this, MenuPrincipalActivity.class));
-                        agregar(v);
+                        AgregarUsuario(v);
                         Toast.makeText(RegistrarUsuarioActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -58,7 +60,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
     }
 
 
-        private void agregar(View v){
+        private void AgregarUsuario(View v){
             DBHelper conn= new DBHelper(this, "Usuario", null, 1);
             SQLiteDatabase bd =  conn.getWritableDatabase();
 

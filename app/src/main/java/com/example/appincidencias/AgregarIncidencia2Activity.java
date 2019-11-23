@@ -17,8 +17,10 @@ import java.util.Random;
 public class AgregarIncidencia2Activity extends AppCompatActivity {
 
     private Button btnRegistrar;
-    private EditText _ubicacion;
-    private EditText _descripcion;
+    private EditText ubicacion;
+    private EditText descripcion;
+    private Bundle recupera = getIntent().getExtras();
+    private final int cedula = recupera.getInt("llave");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +28,15 @@ public class AgregarIncidencia2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_agregar_incidencia2);
 
         btnRegistrar = findViewById(R.id.btn_agregar_incidencia);
-        _ubicacion = findViewById(R.id.txt_ubicacion_agregar);
-        _descripcion = findViewById(R.id.txt_descripcion_agregar);
-
-        Bundle recupera = getIntent().getExtras();
-        final int cedula = recupera.getInt("llave");
+        ubicacion = findViewById(R.id.txt_ubicacion_agregar);
+        descripcion = findViewById(R.id.txt_descripcion_agregar);
 
         try {
 
             btnRegistrar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (AgregarIncidencia(cedula, _ubicacion.getText().toString(), _descripcion.getText().toString())) {
+                    if (AgregarIncidencia(v)) {
                         startActivity(new Intent(AgregarIncidencia2Activity.this, MenuPrincipalActivity.class));
                     } else {
                         Toast.makeText(null, "No se ha podido registrar la incidencia", Toast.LENGTH_LONG).show();
@@ -49,7 +48,7 @@ public class AgregarIncidencia2Activity extends AppCompatActivity {
         }
     }
 
-    private boolean AgregarIncidencia(int idPersona, String ubicacion, String descripcion) {
+    private boolean AgregarIncidencia(View v) {
         DBHelper conn = new DBHelper(this, "Usuario", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
@@ -57,15 +56,15 @@ public class AgregarIncidencia2Activity extends AppCompatActivity {
 
         Incidencia incidencia = new Incidencia();
 
-        incidencia.setUbicacion(ubicacion);
-        incidencia.setDescripcion(descripcion);
-        incidencia.setIdUsuario(idPersona);
+        incidencia.setUbicacion(ubicacion.getText().toString());
+        incidencia.setDescripcion(descripcion.getText().toString());
+        incidencia.setIdUsuario(cedula);
         incidencia.setIdIncidencia(r.nextInt());
 
         if(!incidencia.getDescripcion().isEmpty() || incidencia.getIdUsuario() != 0 || !incidencia.getUbicacion().isEmpty()){
             ContentValues valores = new ContentValues();
-            valores.put("Ubicacion", _ubicacion.getText().toString());
-            valores.put("Descripcion", _descripcion.getText().toString());
+            valores.put("Ubicacion", ubicacion.getText().toString());
+            valores.put("Descripcion", descripcion.getText().toString());
 
             db.insert("Incidencia", null, valores);
             db.close();

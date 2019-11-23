@@ -10,7 +10,7 @@
     tools:context=".ActualizarIncidencia2Activity">
 
     <EditText
-        android:id="@+id/txt_canton_registro"
+        android:id="@+id/txt_ubicacion_actualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,7 +24,7 @@
         android:orientation="vertical">
 
         <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
+            android:id="@+id/mapView_actualizar"
             android:layout_width="match_parent"
             android:layout_height="304dp"
             android:layout_marginTop="100px"
@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/txt_provincia_registro"
+        android:id="@+id/txt_descripcion_actualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100px"
