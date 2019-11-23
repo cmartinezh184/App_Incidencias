@@ -19,7 +19,7 @@ public class listas extends Activity {
 
         ListView list_listas;
         ArrayList<String> listarInfo;
-        ArrayList<listas> listaincidencia;
+        ArrayList<Incidencia> listaincidencia;
 
 
     @Override
@@ -42,8 +42,8 @@ public class listas extends Activity {
             DBHelper conn = new DBHelper(this, "Administrador", null, 1);
             SQLiteDatabase bd = conn.getWritableDatabase();
 
-            listas lista = null;
-            listaincidencia = new ArrayList<listas>();
+            Incidencia lista = null;
+            listaincidencia = new ArrayList<Incidencia>();
 
             Toast.makeText(this,"Entro a listar",Toast.LENGTH_SHORT).show();
             try {
@@ -51,15 +51,11 @@ public class listas extends Activity {
                         ("SELECT * FROM bd", null);
                 while (fila.moveToNext()) {
                     // Se obtiene el siguiente contacto en la lista y se ingresa al objeto lista
-                    lista = new listas();
-                    lista.setCedula(fila.getString(0));
-                    lista.setNombre(fila.getString(1));
-                    lista.setPrimerApellido(fila.getString(2));
-                    lista.setSegundoApellido(fila.getString(3));
-                    lista.setDireccionID(fila.getString(4));
-                    lista.setCorreo(fila.getString(5));
-                    lista.setTelefono(fila.getString(6));
-                    lista.setContraenia(fila.getString(7));
+                    lista= new Incidencia();
+                    lista.setDescripcion(fila.getString(0));
+                    lista.setIdIncidencia(Integer.parseInt(fila.getString(1)));
+                    lista.setIdUsuario(Integer.parseInt(fila.getString(2)));
+                    lista.setUbicacion(fila.getString(3));
                     // Se agrega el nuevo contacto obtenido a la lista de lista
                     listaincidencia.add(lista);
                 }
@@ -72,7 +68,7 @@ public class listas extends Activity {
     private void ObtenerLista () {
         listarInfo = new ArrayList<String>();
         for (int i = 0; i < listaincidencia.size(); i++) {
-            listarInfo.add(listaincidencia.get(i).getCedula() + " - " + listaincidencia.get(i).getNombre() + " - " + listaincidencia.get(i).getPrimerApellido) + " - " +  listaincidencia.get(i).getSegundoApellido() + " - " + listaincidencia.get(i).getDireccionID() + " - " + listaincidencia.get(i).getTelefono() + " - " + listaincidencia.get(i).getContrasenia() + " - " + listaincidencia.get(i).getTelefono());
+            listarInfo.add(listaincidencia.get(i).getIdIncidencia() + " - " + listaincidencia.get(i).getIdUsuario() + " - " + listaincidencia.get(i).getDescripcion() + " - " +  listaincidencia.get(i).getUbicacion());
         }
     }
 
