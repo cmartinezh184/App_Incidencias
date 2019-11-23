@@ -5,70 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".menuPrincipal" >
+    tools:context=".MenuPrincipalActivity" >
+
+    <TextView
+        android:id="@+id/txt_opcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230px"
+        android:layout_marginBottom="50px"
+        android:text="@string/txt_opcion"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/txt_opcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="230px"
-            android:layout_marginBottom="50px"
-            android:text="@string/txt_opcion"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="383dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="16px" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="258dp"
-            android:gravity="center|center_horizontal"
-            android:orientation="horizontal">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/btn_incidencias_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:background="@android:color/transparent"
                 android:gravity="center|center_vertical"
                 app:srcCompat="@drawable/btn_incidencias" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="228dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_registrar_incidencia_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/txt_registrar_incidencia" />
 
             <ImageButton
-                android:id="@+id/btn_actualizar_menu"
+                android:id="@+id/btn_actualizar_incidencia_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
+                android:layout_margin="20dp"
                 android:background="@android:color/transparent"
                 android:gravity="center|center_vertical"
                 app:srcCompat="@drawable/btn_actualizar" />
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView

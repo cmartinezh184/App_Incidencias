@@ -3,7 +3,6 @@ package com.example.appincidencias;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.ViewAnimator;
-
-
-import org.w3c.dom.Text;
 
 
 public class RegistrarUsuarioActivity extends AppCompatActivity {
@@ -49,12 +44,14 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     final String correoTexto = Correo.getText().toString().trim();
-                    final String regex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                    if (!correoTexto.matches(regex)) {
+                    final String telefonoTexto = Telefono.getText().toString();
+                    final String regexCorreo = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"; // Se valida que el correo tenga la estructura de 'letras'@'letras'.'letras'
+                    final String regexTelefono = "^[+]?[0-9]{8,11}$"; // Se valida que el telefono tenga entre 8 a 11 digitos y solo numeros
+                    if (!correoTexto.matches(regexCorreo) || !telefonoTexto.matches(regexTelefono)) { // Se comparan los valores ingresados con las validaciones de correo y telefono
                         Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
-                    } else {
-                        startActivity(new Intent(RegistrarUsuarioActivity.this, menuPrincipal.class));
-                        agregar(v);
+                    } else { // Si la validacion es exitosa se registra el usuario
+                        startActivity(new Intent(RegistrarUsuarioActivity.this, MenuPrincipalActivity.class));
+                        AgregarUsuario(v);
                         Toast.makeText(RegistrarUsuarioActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -65,7 +62,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
     }
 
 
-        private void agregar(View v){
+        private void AgregarUsuario(View v){
             DBHelper conn= new DBHelper(this, "Usuario", null, 1);
             SQLiteDatabase bd =  conn.getWritableDatabase();
 

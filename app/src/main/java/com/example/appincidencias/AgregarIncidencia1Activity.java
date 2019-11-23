@@ -8,11 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class detalle_incidencia extends AppCompatActivity {
+public class AgregarIncidencia1Activity extends AppCompatActivity {
 
     private Button btnIncidencia;
     private EditText Cedula, Nombre, PrimerApellido, SegundoApellido, Provincia, Canton, Distrito;
@@ -21,7 +20,7 @@ public class detalle_incidencia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detalle_incidencia);
+        setContentView(R.layout.activity_agregar_incidencia1);
 
         //Extraer los datos
         Cedula = (EditText) findViewById(R.id.editText);
@@ -38,24 +37,28 @@ public class detalle_incidencia extends AppCompatActivity {
         btnIncidencia = findViewById(R.id.btn_siguiente_incidencia);
 
         try{
-        btnIncidencia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(detalle_incidencia.this, detalle_incidencia2.class));
-                if (!Provincia.getText().equals("") || !Canton.getText().equals("") || !Distrito.getText().equals("")) {
-                    Toast.makeText(detalle_incidencia.this, "Ingrese una ubicacion", Toast.LENGTH_LONG).show();
-                } else {
-                    startActivity(new Intent(detalle_incidencia.this, detalle_incidencia2.class));
+            btnIncidencia.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent navegar = new Intent(AgregarIncidencia1Activity.this, AgregarIncidencia2Activity.class);
+
+                    navegar.putExtra("cedula", Integer.parseInt(Cedula.getText().toString()));
+
+                    if (!Provincia.getText().equals("") || !Canton.getText().equals("") || !Distrito.getText().equals("") || !Cedula.getText().equals("")) {
+                        startActivity(navegar);
+                    } else {
+                        Toast.makeText(AgregarIncidencia1Activity.this, "Debe llenar todos los campos", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+
         } catch (Exception e) {
-            Toast.makeText(detalle_incidencia.this, "Ha ocurrido un error", Toast.LENGTH_LONG).show();
+            Toast.makeText(AgregarIncidencia1Activity.this, "Ha ocurrido un error", Toast.LENGTH_LONG).show();
         }
 
 
-            }
-        }
+     }
+}
 
 
 

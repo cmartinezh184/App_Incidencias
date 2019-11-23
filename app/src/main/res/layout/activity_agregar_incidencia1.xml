@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context="">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:text="Datos Personales"
         android:textColor="@android:color/black"
         android:textSize="24sp" />
@@ -16,9 +19,10 @@
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
-        android:inputType="number"
-        tools:text="Ej: 117410990" />
+        android:hint="Ej: 117410990"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editText2"
@@ -26,8 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80px"
         android:ems="10"
-        android:inputType="number"
-        android:text="Ej: Katherine" />
+        android:hint="Ej: Katherine"
+        android:inputType="text" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,8 +45,8 @@
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number"
-            tools:text="Ej: Martinez" />
+            android:hint="Ej: Martinez"
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/txt_nombre_registro"
@@ -51,8 +55,8 @@
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number"
-            android:text="Ej: Chacon" />
+            android:hint="Ej: Chacon"
+            android:inputType="text" />
     </LinearLayout>
 
     <TextView
@@ -81,43 +85,43 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/txt_primer_apellido_registro"
+            android:id="@+id/txt_provincia_detalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number"
-            android:text="@string/txt_provincia" />
+            android:hint="@string/txt_provincia"
+            android:inputType="number" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/txt_canton_detalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number"
-            android:text="@string/txt_canton" />
+            android:hint="@string/txt_canton"
+            android:inputType="number" />
 
         <EditText
-            android:id="@+id/txt_distrito_registro"
+            android:id="@+id/txt_distrito_detalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number"
-            android:text="@string/txt_distrito" />
+            android:hint="@string/txt_distrito"
+            android:inputType="number" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_siguiente_incidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225px"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:text="Siguiente"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

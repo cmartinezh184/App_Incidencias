@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="45dp"
-            android:text="@string/tituloListas"
+            android:text="@string/titulo_Listas"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="28sp" />

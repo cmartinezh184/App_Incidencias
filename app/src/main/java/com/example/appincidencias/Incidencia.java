@@ -4,17 +4,18 @@ import android.location.Location;
 
 public class Incidencia {
 
-    private int idIncidencia, idUsuario, direccionId;
+    private int idIncidencia, idUsuario;
     private String descripcion;
-    private Location ubicacion;
+    private String ubicacion;
 
-    public Incidencia(int idIncidencia, int idUsuario, int direccionId, String descripcion, Location ubicacion) {
+    public Incidencia(int idIncidencia, int idUsuario, int direccionId, String descripcion, String ubicacion) {
         this.idIncidencia = idIncidencia;
         this.idUsuario = idUsuario;
-        this.direccionId = direccionId;
         this.descripcion = descripcion;
         this.ubicacion = ubicacion;
     }
+
+    public Incidencia(){}
 
     public int getIdIncidencia() {
         return idIncidencia;
@@ -32,14 +33,6 @@ public class Incidencia {
         this.idUsuario = idUsuario;
     }
 
-    public int getDireccionId() {
-        return direccionId;
-    }
-
-    public void setDireccionId(int direccionId) {
-        this.direccionId = direccionId;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -48,11 +41,11 @@ public class Incidencia {
         this.descripcion = descripcion;
     }
 
-    public Location getUbicacion() {
+    public String getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(Location ubicacion) {
+    public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
 }
