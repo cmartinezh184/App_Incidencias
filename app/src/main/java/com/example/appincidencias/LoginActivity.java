@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else if (!LogIn(correo.getText().toString(), contrasenia.getText().toString())){
                         Toast.makeText(LoginActivity.this, "Inicio de sesion fallido", Toast.LENGTH_LONG).show();
                     } else {
-                        startActivity(new Intent(LoginActivity.this, menuPrincipal.class));
+                        startActivity(new Intent(LoginActivity.this, MenuPrincipalActivity.class));
                     }
                 }
             });

@@ -3,7 +3,6 @@ package com.example.appincidencias;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.ViewAnimator;
-
-
-import org.w3c.dom.Text;
 
 
 public class RegistrarUsuarioActivity extends AppCompatActivity {
@@ -51,7 +46,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                     if (!correoTexto.matches(regex)) {
                         Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
                     } else {
-                        startActivity(new Intent(RegistrarUsuarioActivity.this, menuPrincipal.class));
+                        startActivity(new Intent(RegistrarUsuarioActivity.this, MenuPrincipalActivity.class));
                         agregar(v);
                         Toast.makeText(RegistrarUsuarioActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
                     }

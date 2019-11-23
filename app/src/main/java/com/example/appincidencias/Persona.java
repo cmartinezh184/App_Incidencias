@@ -1,6 +1,6 @@
 package com.example.appincidencias;
 
-public class persona {
+public class Persona {
 
     private int Cedula;
     private String Nombre;
@@ -11,7 +11,7 @@ public class persona {
     private int Telefono;
     private String Contrasenia;
 
-    public persona(int cedula, String nombre, String primerApellido, String segundoApellido, int direccionID, String correo, int telefono, String contrasenia) {
+    public Persona(int cedula, String nombre, String primerApellido, String segundoApellido, int direccionID, String correo, int telefono, String contrasenia) {
         Cedula = cedula;
         Nombre = nombre;
         PrimerApellido = primerApellido;

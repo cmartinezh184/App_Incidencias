@@ -20,19 +20,20 @@
     <string name="txt_direccionExacta">Dirección Exacta</string>
     <string name="btn_imagen">Imagen</string>
     <string name="txt_detalleIncidente">Detalles</string>
-    <string name="btn_registrarIncidente">Registrar Incidente</string>
-    <string name="btn_puente">Puente</string>
-    <string name="btn_servicioPublico">Servicio Público</string>
-    <string name="btn_servicioPrivado">Servicio Privado</string>
+    <string name="txt_puente">Puente</string>
+    <string name="txt_servicio_publico">Servicio Público</string>
     <string name="txt_cuenta">Cuenta</string>
     <string name="txt_titulo">Registro de Incidencias</string>
-    <string name="txt_bienvenida">Repositorio de incidencias para los ciudadanos cosarricenses</string>
+    <string name="txt_bienvenida">Repositorio de incidencias para los ciudadanos costarricenses</string>
     <string name="txt_opcion">Elija una Opción</string>
-    <string name="btn_incidencias">Incidencias</string>
-    <string name="btn_actualizarIncidencias">Actualizar Incidencia</string>
-    <string name="btn_servicio_Privado">Servicio Privado</string>
+    <string name="txt_incidencias">Incidencias</string>
+    <string name="txt__servicio_privado">Servicio Privado</string>
     <string name="btn_siguiente_incidencia">Siguiente</string>
-    <string name="tituloListas">Lista Incidencias</string>
+    <string name="titulo_Listas">Lista Incidencias</string>
+    <string name="title_activity_mapa_agregar_incidencia">Map</string>
+    <string name="txt_registrar_incidencia">Registrar Incidencia</string>
+    <string name="txt_incidencia">Incidencia</string>
+    <string name="txt_actualizar_incidencia">Actualizar Incidencia</string>
 
 </resources>
 
