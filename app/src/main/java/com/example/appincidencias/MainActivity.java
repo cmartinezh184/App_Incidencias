@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button registrar;
     private Button login;
+    private ListView list_listas;
 
     private EditText Cedula, Nombre, PrimerApellido, SegundoApellido,DireccionID, Correo, Telefono, Contrasenia;
     private Button agregar, consultar, eliminar;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         // Creacion de los botones para el cambio de pantalla
         registrar = (Button)findViewById(R.id.btn_registrarse_main);
         login = (Button)findViewById(R.id.btn_login_main);
+        list_listas = (ListView) findViewById(R.id.list_listas);
 
         // Redireccionamiento de los botones a las actividades correspondiedtes
 

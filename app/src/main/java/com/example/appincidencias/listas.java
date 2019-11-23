@@ -1,62 +1,80 @@
 package com.example.appincidencias;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
 
 public class listas extends Activity {
 
+
+        ListView list_listas;
+        ArrayList<String> listarInfo;
+        ArrayList<listas> listaincidencia;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        DBHelper dbHelper = new DBHelper(this, "Usuario", null, 1);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        if (db != null) {
-            // Insert con execSQL
-            db.execSQL("INSERT INTO comments (Cedula, Nombre, PrimerApellido, SegundoApellido, DireccionID, Correo, Telefono, Contrasenia) VALUES ('Digital Learning','Esto es un comentario insertado usando el método execSQL()')");
+        protected void onCreate(Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.lista_incidencias);
 
-            // Insert con ContentValues
-            ContentValues cv = new ContentValues();
-            cv.put("user", "Academia Android");
-            cv.put("comment", "Esto es un comentario insertado usando el método insert()");
-            db.insert("comments", null, cv);
+            list_listas = (ListView) findViewById(R.id.list_listas);
 
-            // Update con execSQL
-            db.execSQL("UPDATE comments SET comment='Esto es un comentario actualizado por el método execSQL()' WHERE user='Digital Learning'");
+        Toast.makeText(this, "Entro a Create", Toast.LENGTH_SHORT).show();
 
-            // Update con ContentValues
-            cv = new ContentValues();
-            cv.put("comment", "Esto es un comentario actualizado por el método update()");
-            String[] args = new String []{ "Academia Android"};
-            db.update("comments", cv, "user=?", args);
 
-            //Consultamos los datos
-            Cursor c = db.rawQuery("SELECT Cedula, Nombre, PrimerApellido, SegundoApellido, DireccionID, Correo, Telefono, Contrasenia FROM DBHelper", null);
+            ListarListas();
 
-            if (c != null) {
-                c.moveToFirst();
-                //Do-while es de tipo pos prueba que  primero realiza las acciones luego pregunta.
-                do {
-                    //Asignamos el valor en nuestras variables para usarlos en lo que necesitemos
-                    String Cedula = c.getString(c.getColumnIndex("Cedula"));
-                    String Nombre = c.getString(c.getColumnIndex("Nombre"));
-                    String PrimerApellido = c.getString(c.getColumnIndex("PrimerApellido"));
-                    String SegundoApellido = c.getString(c.getColumnIndex("SegundoApellido"));
-                    String DireccionID = c.getString(c.getColumnIndex("DireccionID"));
-                    String Correo = c.getString(c.getColumnIndex("Correo"));
-                    String Telefono = c.getString(c.getColumnIndex("Telefono"));
-                    String Contrasenia= c.getString(c.getColumnIndex("Contrasenia"));
-                } while (c.moveToNext());
-            }
-
-            //Cerramos el cursor y la conexion con la base de datos
-            c.close();
-            db.close();
-
+            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listarInfo);
+            list_listas.setAdapter(adapter);
         }
 
+        private void ListarListas() {
+            DBHelper conn = new DBHelper(this, "Administrador", null, 1);
+            SQLiteDatabase bd = conn.getWritableDatabase();
+
+            listas lista = null;
+            listaincidencia = new ArrayList<listas>();
+
+            Toast.makeText(this,"Entro a listar",Toast.LENGTH_SHORT).show();
+            try {
+                Cursor fila = bd.rawQuery
+                        ("SELECT * FROM bd", null);
+                while (fila.moveToNext()) {
+                    // Se obtiene el siguiente contacto en la lista y se ingresa al objeto lista
+                    lista = new listas();
+                    lista.setCedula(fila.getString(0));
+                    lista.setNombre(fila.getString(1));
+                    lista.setPrimerApellido(fila.getString(2));
+                    lista.setSegundoApellido(fila.getString(3));
+                    lista.setDireccionID(fila.getString(4));
+                    lista.setCorreo(fila.getString(5));
+                    lista.setTelefono(fila.getString(6));
+                    lista.setContraenia(fila.getString(7));
+                    // Se agrega el nuevo contacto obtenido a la lista de lista
+                    listaincidencia.add(lista);
+                }
+
+                ObtenerLista();
+            } catch (Exception e) {
+                Toast.makeText(this, "Error " + e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    private void ObtenerLista () {
+        listarInfo = new ArrayList<String>();
+        for (int i = 0; i < listaincidencia.size(); i++) {
+            listarInfo.add(listaincidencia.get(i).getCedula() + " - " + listaincidencia.get(i).getNombre() + " - " + listaincidencia.get(i).getPrimerApellido) + " - " +  listaincidencia.get(i).getSegundoApellido() + " - " + listaincidencia.get(i).getDireccionID() + " - " + listaincidencia.get(i).getTelefono() + " - " + listaincidencia.get(i).getContrasenia() + " - " + listaincidencia.get(i).getTelefono());
+        }
     }
-}
+
+    }
+

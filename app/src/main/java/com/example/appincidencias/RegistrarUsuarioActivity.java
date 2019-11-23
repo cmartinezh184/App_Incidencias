@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.ContentValues;
@@ -20,6 +21,7 @@ import org.w3c.dom.Text;
 public class RegistrarUsuarioActivity extends AppCompatActivity {
 
     private Button registrar;
+    ListView list_listas;
     private TextView Cedula, Nombre, PrimerApellido, SegundoApellido, DireccionID, Correo, Telefono, Contrasenia;
 
 
@@ -105,5 +107,38 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
 
         }
 
+    private void Consultar(View view){
+        DBHelper conn= new DBHelper(this, "Usuario", null, 1);
+        SQLiteDatabase bd =  conn.getWritableDatabase();
+
+        try {
+
+            if (!list_listas.getCedula().isEmpty()) {
+                Cursor fila = bd.rawQuery("SELECT * FROM Contacto WHERE Cedula =" + Consultar.getText().toString(), null);
+
+
+                if (fila.moveToNext()) {
+                    nombre.setText(fila.getString(1));
+                    telefono.setText(fila.getString(2));
+
+                    Toast.makeText(this, "Consulta exitosa", Toast.LENGTH_LONG).show();
+
+                    bd.close();
+                } else {
+                    Toast.makeText(this, "No se ha encontrado un contacto con esta " +
+                            "informacion", Toast.LENGTH_LONG).show();
+                    bd.close();
+                }
+            }else{
+                Toast.makeText(view.getContext(),"Debe digitar la cedula",Toast.LENGTH_SHORT).show();;
+            }
+
+
+        } catch (Exception e) {
+
+            Toast.makeText(this, "Ha ocurrido un error", Toast.LENGTH_LONG).show();
+
+        }
 
     }
+}
