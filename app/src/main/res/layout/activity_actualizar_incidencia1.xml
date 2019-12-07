@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".ActualizarIncidencia1Activity">
 
     <TextView
         android:id="@+id/textView3"
@@ -13,21 +15,21 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/txt_cedula_actualizar_incidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        tools:text="Ej: 117410990" />
+        tools:hint="Ej: 117410990" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/txt_nombre_actualizar_incidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80px"
         android:ems="10"
-        android:inputType="number"
-        android:text="Ej: Katherine" />
+        android:inputType="text"
+        android:hint="Ej: Katherine" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,28 +37,28 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/txt_apellido1_actualizar_incidencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number"
-            tools:text="Ej: Martinez" />
+            android:inputType="text"
+            tools:hint="Ej: Martinez" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/txt_apellido2_actualizar_incidencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:text="Ej: Chacon" />
+            android:hint="Ej: Chacon" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_titulo_datos_actualizar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Datos de la Incidencia"
@@ -64,13 +66,13 @@
         android:textSize="24sp" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/txt_categoria_incidencia_actualizar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="50px" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/txt_categoria_empresa_actualizar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="50px" />
@@ -81,43 +83,43 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/txt_provincia_actualizar_incidencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:text="@string/txt_provincia" />
+            android:hint="@string/txt_provincia" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/txt_canton_actualizar_incidencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:text="@string/txt_canton" />
+            android:hint="@string/txt_canton" />
 
         <EditText
-            android:id="@+id/editText8"
+            android:id="@+id/txt_distrito_actualizar_incidencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80px"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:text="@string/txt_distrito" />
+            android:hint="@string/txt_distrito" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/botton2"
+        android:id="@+id/btn_siguiente_actualizar_incidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225px"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:text="Siguiente"
+        android:text="@string/btn_siguiente_incidencia"
         android:textColor="@android:color/white"/>
 
 </LinearLayout>

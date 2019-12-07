@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingTop="50dp"
+    android:paddingRight="20dp"
+    tools:context=".ActualizarIncidencia2Activity">
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/txt_ubicacion_actualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -13,34 +19,34 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="145dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="vertical">
 
         <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:id="@+id/mapView_actualizar"
+            android:layout_width="match_parent"
+            android:layout_height="304dp"
             android:layout_marginTop="100px"
             android:layout_weight="1" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/txt_descripcion_actualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100px"
         android:ems="10"
-        android:inputType="number"
-        android:text="Hueco" />
+        android:hint="@string/txt_incidencia"
+        android:inputType="number" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_actualizar_incidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100px"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:text="Registrar Incidencia"
+        android:text="@string/txt_actualizar_incidencia"
         android:textColor="@android:color/white" />
-
 
 </LinearLayout>

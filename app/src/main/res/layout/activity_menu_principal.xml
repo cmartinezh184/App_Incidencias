@@ -5,72 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".menuPrincipal" >
+    tools:context=".MenuPrincipalActivity" >
+
+    <TextView
+        android:id="@+id/txt_opcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230px"
+        android:layout_marginBottom="50px"
+        android:text="@string/txt_opcion"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <TextView
-            android:id="@+id/txt_opcion"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="230px"
-            android:layout_marginBottom="50px"
-            android:text="@string/txt_opcion"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="383dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="16px" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:rotationY="20">
-
-            <Button
-                android:id="@+id/button3"
+            <ImageButton
+                android:id="@+id/btn_incidencias_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
-                android:layout_weight="1"
-                android:background="#D3D3E4"
-                android:gravity="center_horizontal|center_vertical"
-                android:rotationY="20"
-                android:text="@string/btn_incidencias"
-                android:translationY="200px" />
+                android:layout_margin="20dp"
+                android:background="@android:color/transparent"
+                android:gravity="center|center_vertical"
+                app:srcCompat="@drawable/btn_incidencias" />
 
+            <Button
+                android:id="@+id/btn_registrar_incidencia_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/txt_registrar_incidencia" />
+
+            <ImageButton
+                android:id="@+id/btn_actualizar_incidencia_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@android:color/transparent"
+                android:gravity="center|center_vertical"
+                app:srcCompat="@drawable/btn_actualizar" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button4"
+            <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginRight="20px"
                 android:layout_weight="1"
-                android:background="#D3D3E4"
-                android:gravity="center|center_vertical"
-                android:text="@string/btn_actualizarIncidencias"
-                android:textColor="#272424"
-                android:translationY="80px" />
+                app:srcCompat="@drawable/image" />
         </LinearLayout>
+
 
     </LinearLayout>
 </LinearLayout>
