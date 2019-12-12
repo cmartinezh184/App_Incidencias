@@ -27,9 +27,10 @@ import java.util.Map;
  */
 public class IncidenciasWS {
 
+    // Variables
+
     private final String url = "http://54.227.173.39/Incidencias/";// URL del servidor
     public Context context;// Almacena el contexto de la pantalla donde se invoca
-
 
     //Variable para escuchar las respuestas del servidor
     private Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -47,6 +48,8 @@ public class IncidenciasWS {
         }
     };
 
+    // Constructor
+
     /**
      * Constructor de la clase
      * @param context Contexto de la aplicacion donde se ocupa
@@ -55,17 +58,12 @@ public class IncidenciasWS {
         this.context = context;
     }
 
-    private String enlistarIncidenciasURL() {
-        return url + "EnlistarIncidencias.php";
-    }
 
-    private String consultarInciednciaURL() {
-        return url + "ConsultarInciedncia.php";
-    }
+    // Metodos
 
     /**
-     * Metodo que se conecta con el servicio web y utiliza un metodo POST para hacer una validacion
-     * de inicio de sesion
+     * Metodo para iniciar sesion con credenciales de la base de datos. Utiliza POST para la
+     * validacion
      * @param correo correo del usuario
      * @param contrasenia contrasenia del usuario
      */
@@ -105,7 +103,7 @@ public class IncidenciasWS {
     }
 
     /**
-     * Metodo que se conecta con el servicio y a traves de un POST registra usuarios a la base de datos
+     * Metodo que se a traves de un POST registra usuarios a la base de datos
      * @param persona objeto con la informacion ingresada por el usuario
      */
     public void registrarUsuario(final Persona persona) {
@@ -193,5 +191,57 @@ public class IncidenciasWS {
         queue.add(jsonArrayRequest);*/
 
         return lista;
+    }
+
+    /**
+     * Metodo que busca una incidencia por su ID en el servidor
+     * @param idIncidencia ID de la incidencia
+     * @return objeto con la informacion de la incidencia
+     */
+    public Incidencia consultarIncidencia(int idIncidencia) {
+
+        // Se indica la direccion del servidor que se va a utilizar
+        String consultarIncidencia = url + "ConsultarInciedncia.php?incidencia_id=" +idIncidencia ;
+
+        final Incidencia incidencia = new Incidencia();
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+        final ArrayList<String> lista = new ArrayList<>();
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, consultarIncidencia, null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                for (int i = 0; i < response.length(); i++) {
+                    JSONObject object = null;
+                    try {
+                        object = response.getJSONObject(i);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    String objectString = object.optString(
+                            object.optString("descripcion", "N/A")
+                                    + " - " + object.optString("latitud", "N/A")
+                                    + " - " + object.optString("longitud", "N/A")
+                    );
+
+                    incidencia.setIdIncidencia(Integer.parseInt(object.optString("incidencia_id")));
+                    incidencia.setDescripcion(object.optString("descripcion"));
+                    incidencia.setIdUsuario(Integer.parseInt(object.optString("usuario_id")));
+                    incidencia.setLatitud(object.optString("latitud"));
+                    incidencia.setLongitud(object.optString("longitud"));
+
+                }
+
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("TAG", "Error response: ", error);
+            }
+        });
+
+        return incidencia;
     }
 }
