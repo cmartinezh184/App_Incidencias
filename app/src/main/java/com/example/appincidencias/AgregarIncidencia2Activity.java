@@ -11,25 +11,43 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.Random;
 
 
-public class AgregarIncidencia2Activity extends AppCompatActivity {
+public class AgregarIncidencia2Activity extends AppCompatActivity implements OnMapReadyCallback {
 
     private Button btnRegistrar;
     private EditText ubicacion;
     private EditText descripcion;
-    private Bundle recupera = getIntent().getExtras();
-    private final int cedula = recupera.getInt("llave");
+    private MapView mapa;
+   /* private Bundle recupera = getIntent().getExtras();*/
+    /*private final int cedula = recupera.getInt("llave");*/
+
+    private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_incidencia2);
 
+        Bundle mapViewBundle = null;
+        if(savedInstanceState != null){
+            mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY);
+        }
+
         btnRegistrar = findViewById(R.id.btn_agregar_incidencia);
         ubicacion = findViewById(R.id.txt_ubicacion_agregar);
         descripcion = findViewById(R.id.txt_descripcion_agregar);
+        mapa = (MapView) findViewById(R.id.mapView_agregar);
+
+        mapa.onCreate(mapViewBundle);
+        mapa.getMapAsync(this);
 
         try {
 
@@ -58,7 +76,7 @@ public class AgregarIncidencia2Activity extends AppCompatActivity {
 
         incidencia.setUbicacion(ubicacion.getText().toString());
         incidencia.setDescripcion(descripcion.getText().toString());
-        incidencia.setIdUsuario(cedula);
+        incidencia.setIdUsuario(1);
         incidencia.setIdIncidencia(r.nextInt());
 
         if(!incidencia.getDescripcion().isEmpty() || incidencia.getIdUsuario() != 0 || !incidencia.getUbicacion().isEmpty()){
@@ -79,6 +97,60 @@ public class AgregarIncidencia2Activity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
         return false;
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Bundle mapViewBundle = outState.getBundle(MAPVIEW_BUNDLE_KEY);
+        if(mapViewBundle == null) {
+            mapViewBundle = new Bundle();
+            outState.putBundle(MAPVIEW_BUNDLE_KEY, mapViewBundle);
+        }
+
+        mapa.onSaveInstanceState(mapViewBundle);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapa.onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mapa.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mapa.onStop();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        map.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+    }
+
+    @Override
+    protected void onPause() {
+        mapa.onPause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mapa.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapa.onLowMemory();
     }
 }
 
