@@ -15,13 +15,19 @@ import android.database.sqlite.SQLiteDatabase;
 public class RegistrarUsuarioActivity extends AppCompatActivity {
 
     private Button registrar;
-    private TextView Cedula, Nombre, PrimerApellido, SegundoApellido, DireccionID, Correo, Telefono, Contrasenia;
+    private TextView Cedula, Nombre, PrimerApellido, SegundoApellido, DireccionID, Correo, Telefono, Contrasenia, DistritoID;
+    private IncidenciasWS ws;
+    private Persona usuario;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_usuario);
+
+        // Web Service
+        ws = new IncidenciasWS(getApplicationContext());
+        usuario = new Persona();
 
         //Extraer los datos
         Cedula = (TextView) findViewById(R.id.txt_cedula_registro);
@@ -32,8 +38,9 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
         Correo = (TextView) findViewById(R.id.txt_correo_registro);
         Telefono = (TextView) findViewById(R.id.txt_telefono_registro);
         Contrasenia = (TextView) findViewById(R.id.pswd_contrasenia_registro);
+        DistritoID = (TextView) findViewById(R.id.txt_distrito_registro);
 
-
+        // Botones
         registrar = findViewById(R.id.btn_registrarse2);
 
         try {
@@ -46,11 +53,24 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                     final String regexCorreo = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"; // Se valida que el correo tenga la estructura de 'letras'@'letras'.'letras'
                     final String regexTelefono = "^[+]?[0-9]{8,11}$"; // Se valida que el telefono tenga entre 8 a 11 digitos y solo numeros
                     if (!correoTexto.matches(regexCorreo) || !telefonoTexto.matches(regexTelefono)) { // Se comparan los valores ingresados con las validaciones de correo y telefono
-                        Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo valido", Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo/telefono valido", Toast.LENGTH_LONG).show();
                     } else { // Si la validacion es exitosa se registra el usuario
-                        startActivity(new Intent(RegistrarUsuarioActivity.this, MenuPrincipalActivity.class));
-                        AgregarUsuario(v);
-                        Toast.makeText(RegistrarUsuarioActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
+
+                        // Se pasan los a un objeto Persona
+                        usuario.setPrimerNombre(Nombre.getText().toString());
+                        usuario.setSegundoNombre("");
+                        usuario.setCedula(Integer.parseInt(Cedula.getText().toString()));
+                        usuario.setPrimerApellido(PrimerApellido.getText().toString());
+                        usuario.setSegundoApellido(SegundoApellido.getText().toString());
+                        usuario.setDireccion(DireccionID.getText().toString());
+                        usuario.setDistritoID(Integer.parseInt(DistritoID.getText().toString()));
+                        usuario.setCorreo(Correo.getText().toString());
+                        usuario.setTelefono(Integer.parseInt(Telefono.getText().toString()));
+                        usuario.setContrasenia(Contrasenia.getText().toString());
+
+                        // Se registra el objeto persona en la base de datos
+                        ws.registrarUsuario(usuario);
+                        startActivity(new Intent(RegistrarUsuarioActivity.this, LoginActivity.class));
                     }
                 }
             });

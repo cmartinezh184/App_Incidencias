@@ -13,18 +13,7 @@ public class Persona {
     private int telefono;
     private String contrasenia;
 
-    public Persona(int cedula, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, int distritoID, String direccion, String correo, int telefono, String contrasenia) {
-        this.cedula = cedula;
-        this.primerNombre = primerNombre;
-        this.segundoNombre = segundoNombre;
-        this.primerApellido = primerApellido;
-        this.segundoApellido = segundoApellido;
-        this.distritoID = distritoID;
-        this.direccion = direccion;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.contrasenia = contrasenia;
-    }
+    public Persona(){}
 
     public int getCedula() {
         return cedula;

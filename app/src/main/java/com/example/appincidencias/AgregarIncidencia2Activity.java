@@ -74,12 +74,11 @@ public class AgregarIncidencia2Activity extends AppCompatActivity implements OnM
 
         Incidencia incidencia = new Incidencia();
 
-        incidencia.setUbicacion(ubicacion.getText().toString());
         incidencia.setDescripcion(descripcion.getText().toString());
         incidencia.setIdUsuario(1);
         incidencia.setIdIncidencia(r.nextInt());
 
-        if(!incidencia.getDescripcion().isEmpty() || incidencia.getIdUsuario() != 0 || !incidencia.getUbicacion().isEmpty()){
+        if(!incidencia.getDescripcion().isEmpty() || incidencia.getIdUsuario() != 0 /*|| !incidencia.getUbicacion().isEmpty()*/){
             ContentValues valores = new ContentValues();
             valores.put("Ubicacion", ubicacion.getText().toString());
             valores.put("Descripcion", descripcion.getText().toString());
