@@ -14,11 +14,15 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private EditText correo;
     private EditText contrasenia;
+    private IncidenciasWS ws;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Se llama al web service
+        ws = new IncidenciasWS(getApplicationContext());
 
         this.correo = findViewById(R.id.txt_correo2);
         this.contrasenia = findViewById(R.id.txt_contrasenia2);
@@ -35,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else if (!LogIn(correo.getText().toString(), contrasenia.getText().toString())){
                         Toast.makeText(LoginActivity.this, "Inicio de sesion fallido", Toast.LENGTH_LONG).show();
                     } else {
+                        ws.logIn(correo.getText().toString(), contrasenia.getText().toString());
                         startActivity(new Intent(LoginActivity.this, MenuPrincipalActivity.class));
                     }
                 }
