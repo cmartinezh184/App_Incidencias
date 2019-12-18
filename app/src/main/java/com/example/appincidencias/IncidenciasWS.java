@@ -2,7 +2,6 @@ package com.example.appincidencias;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -11,6 +10,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -31,6 +31,7 @@ public class IncidenciasWS {
 
     private final String url = "http://54.227.173.39/Incidencias/";// URL del servidor
     public Context context;// Almacena el contexto de la pantalla donde se invoca
+    private int estados = 0;
 
     //Variable para escuchar las respuestas del servidor
     private Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -67,13 +68,30 @@ public class IncidenciasWS {
      * @param correo correo del usuario
      * @param contrasenia contrasenia del usuario
      */
-    public void logIn(final String correo, final String contrasenia){
+    public int logIn(final String correo, final String contrasenia){
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
 
         // Se indica la direccion del servidor que se va a utilizar
         String logIn = url + "LogIn.php";
 
         // Se establece la conexion con el servidor
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, logIn, this.responseListener, this.errorListener) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, logIn,null , new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                if(response.optString("usuario_activado").equals("0")){
+
+                } else if(response.optString("usuario_activado").equals("1")){
+
+                } else {
+
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
 
             // Se pasan los parametros que se van a utilizar
             @Override
@@ -86,10 +104,9 @@ public class IncidenciasWS {
         };
 
         // Se hace la consulta
-        RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.start();
-        requestQueue.add(stringRequest);
-
+        requestQueue.add(jsonObjectRequest);
+        return 1;
     }
 
     public void registrarIncidencia() {
@@ -100,6 +117,52 @@ public class IncidenciasWS {
     public void modificarIncidencia() {
         // Se indica la direccion del servidor que se va a utilizar
         String modificarIncidencia = url + "ModificarIncidencia.php";
+    }
+
+    /**
+     * Metodo para activar al usuario en la base de datos
+     * @param correo correo del usuario
+     * @param codigo codigo de activacion ingresado
+     * @return Estado de la activacion
+     */
+    public int ActivarUsuario(final String correo, final String codigo) {
+
+        final int[] estado = {0};
+
+        // Se indica la direccion del servidor que se va a utilizar
+        String logIn = url + "ActivarUsuario.php";
+
+        // Se establece la conexion con el servidor
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, logIn, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.equals("1")){
+                    estado[0] = 1;
+                } else if(response.equals("0")){
+                    estado[0] = 0;
+                } else if(response.equals("2")){
+                    estado[0] = 2;
+                } else {
+                    estado[0] = -1;
+                }
+            }
+        }, this.errorListener) {
+
+            // Se pasan los parametros que se van a utilizar
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros = new HashMap<String, String>();
+                parametros.put("correo", correo);
+                parametros.put("codigo_ingresado", codigo);
+                return parametros;
+            }
+        };
+
+        // Se hace la consulta
+        RequestQueue requestQueue= Volley.newRequestQueue(context);
+        requestQueue.start();
+        requestQueue.add(stringRequest);
+        return estado[0];
     }
 
     /**
@@ -169,8 +232,8 @@ public class IncidenciasWS {
 
                     String objectString = object.optString(
                             object.optString("descripcion", "N/A")
-                            + " - " + object.optString("latitud", "N/A")
-                            + " - " + object.optString("longitud", "N/A")
+                                    + " - " + object.optString("latitud", "N/A")
+                                    + " - " + object.optString("longitud", "N/A")
                     )
                             ;
                     lista.add(objectString);
