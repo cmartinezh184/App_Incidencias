@@ -170,15 +170,15 @@ public class IncidenciasWS {
      * @param persona objeto con la informacion ingresada por el usuario
      */
     public void registrarUsuario(final Persona persona) {
+        final int codigoActivacion = (int) ((Math.random()*((99999-10000)+1))+1000);
         // Se indica la direccion del servidor que se va a utilizar
-        String logIn = url + "RegistrarUsuario.php";
+        String registrar = url + "RegistrarUsuario.php";
 
         // Se establece la conexion con el servidor
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, logIn, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, registrar, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
-                // Codigo para enviar el correo al usuario
             }
         }, this.errorListener) {
 
@@ -196,6 +196,7 @@ public class IncidenciasWS {
                 parametros.put("distrito_id", persona.getDistritoID() + "");
                 parametros.put("direccion", persona.getDireccion());
                 parametros.put("contrasenia", persona.getContrasenia());
+                parametros.put("codigo", codigoActivacion + "");
                 return parametros;
             }
         };
@@ -204,6 +205,7 @@ public class IncidenciasWS {
         RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.start();
         requestQueue.add(stringRequest);
+        new EmailSender(persona.getCorreo(), codigoActivacion).execute();
     }
 
     /**

@@ -11,6 +11,17 @@ import android.widget.Toast;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class RegistrarUsuarioActivity extends AppCompatActivity {
 
@@ -56,7 +67,50 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                         Toast.makeText(RegistrarUsuarioActivity.this, "Ingrese un correo/telefono valido", Toast.LENGTH_LONG).show();
                     } else { // Si la validacion es exitosa se registra el usuario
 
-                        // Se pasan los a un objeto Persona
+                        final int codigoActivacion = (int) ((Math.random()*((99999-10000)+1))+1000);
+                        // Se indica la direccion del servidor que se va a utilizar
+                        String url = "http://54.227.173.39/Incidencias/RegistrarUsuario.php";
+
+                        // Se establece la conexion con el servidor
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegistrarUsuarioActivity.this, LoginActivity.class));
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }) {
+
+                            // Se pasan los parametros que se van a utilizar
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String,String> parametros = new HashMap<String, String>();
+                                parametros.put("cedula", Cedula.getText().toString());
+                                parametros.put("primer_nombre", Nombre.getText().toString());
+                                parametros.put("segundo_nombre", "");
+                                parametros.put("primer_apellido", PrimerApellido.getText().toString());
+                                parametros.put("segundo_apellido", SegundoApellido.getText().toString());
+                                parametros.put("correo", Correo.getText().toString());
+                                parametros.put("telefono", Telefono.getText().toString());
+                                parametros.put("distrito_id", DistritoID.getText().toString());
+                                parametros.put("direccion", DireccionID.getText().toString());
+                                parametros.put("contrasenia", Contrasenia.getText().toString());
+                                parametros.put("codigo", codigoActivacion + "");
+                                return parametros;
+                            }
+                        };
+
+                        // Se hace la consulta
+                        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
+                        requestQueue.start();
+                        requestQueue.add(stringRequest);
+                        new EmailSender(Correo.getText().toString(), codigoActivacion).execute();
+
+                       /* // Se pasan los a un objeto Persona
                         usuario.setPrimerNombre(Nombre.getText().toString());
                         usuario.setSegundoNombre("");
                         usuario.setCedula(Integer.parseInt(Cedula.getText().toString()));
@@ -70,7 +124,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
 
                         // Se registra el objeto persona en la base de datos
                         ws.registrarUsuario(usuario);
-                        startActivity(new Intent(RegistrarUsuarioActivity.this, LoginActivity.class));
+                        startActivity(new Intent(RegistrarUsuarioActivity.this, LoginActivity.class));*/
                     }
                 }
             });
