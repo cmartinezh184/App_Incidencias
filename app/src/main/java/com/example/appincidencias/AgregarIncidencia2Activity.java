@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -26,10 +30,14 @@ public class AgregarIncidencia2Activity extends AppCompatActivity implements OnM
     private EditText ubicacion;
     private EditText descripcion;
     private MapView mapa;
-   /* private Bundle recupera = getIntent().getExtras();*/
-    /*private final int cedula = recupera.getInt("llave");*/
+    private ImageView foto;
 
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
+    private static final int STORAGE_PERMISSION_CODE = 2342;
+    private static final int PICK_IMAGE_REQUEST = 22;
+
+    private Uri filePath;
+    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,8 @@ public class AgregarIncidencia2Activity extends AppCompatActivity implements OnM
         ubicacion = findViewById(R.id.txt_ubicacion_agregar);
         descripcion = findViewById(R.id.txt_descripcion_agregar);
         mapa = (MapView) findViewById(R.id.mapView_agregar);
+        foto = (ImageView) findViewById(R.id.img_incidencia);
+
 
         mapa.onCreate(mapViewBundle);
         mapa.getMapAsync(this);

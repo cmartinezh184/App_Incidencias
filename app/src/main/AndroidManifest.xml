@@ -9,7 +9,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Se permite el acceso a internet para trabajar con BD externas -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +22,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ActivarUsuarioActivity"></activity>
+        <activity android:name=".AgregarIncidenciaActivity"
+            android:parentActivityName=".MenuPrincipalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.appincidencias.MenuPrincipalActivity" />
+        </activity>
+        <activity android:name=".ActivarUsuarioActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -32,10 +41,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".LoginActivity" android:parentActivityName=".MenuPrincipalActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.appincidencias.MenuPrincipalActivity"/>
-
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".MenuPrincipalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.appincidencias.MenuPrincipalActivity" />
         </activity>
         <activity android:name=".RegistrarUsuarioActivity" />
         <activity android:name=".MainActivity">

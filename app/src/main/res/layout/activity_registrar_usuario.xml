@@ -70,33 +70,23 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/txt_provincia_registro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/txt_provincia"
-                android:inputType="textPersonName" />
+            <Spinner
+                android:id="@+id/Provincias_Usuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
-            <EditText
-                android:id="@+id/txt_canton_registro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/txt_canton"
-                android:inputType="textPersonName" />
+            <Spinner
+                android:id="@+id/Canton_Usuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
-            <EditText
-                android:id="@+id/txt_distrito_registro"
-                android:layout_width="128dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/txt_distrito"
-                android:inputType="textPersonName" />
+            <Spinner
+                android:id="@+id/Distrito_Usuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <EditText

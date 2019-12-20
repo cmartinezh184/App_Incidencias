@@ -64,7 +64,8 @@ public class IncidenciasWS {
 
     /**
      * Metodo para iniciar sesion con credenciales de la base de datos. Utiliza POST para la
-     * validacion
+     * validacion{
+;
      * @param correo correo del usuario
      * @param contrasenia contrasenia del usuario
      */

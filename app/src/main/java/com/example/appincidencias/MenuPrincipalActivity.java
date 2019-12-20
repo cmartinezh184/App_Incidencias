@@ -35,7 +35,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuPrincipalActivity.this, AgregarIncidencia1Activity.class));
+                startActivity(new Intent(MenuPrincipalActivity.this, AgregarIncidenciaActivity.class));
             }
         });
 
