@@ -1,6 +1,7 @@
 package com.example.appincidencias;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,6 +60,11 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements Adapt
         // Web Service
         ws = new IncidenciasWS(getApplicationContext());
         usuario = new Persona();
+
+        androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.tlbr_registrar_usuario);
+        setSupportActionBar(toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         //Extraer los datos
         Cedula = (TextView) findViewById(R.id.txt_cedula_registro);

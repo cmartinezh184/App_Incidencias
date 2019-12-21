@@ -105,10 +105,10 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_incidencia);
 
-        btnRegistrarIncidencia = findViewById(R.id.btn_actualizar_incidencia2);
-        cedula = findViewById(R.id.txt_cedula_actualizar_incidencia1);
-        Categoria = (Spinner) findViewById(R.id.categoria);
-        Empresa = (Spinner) findViewById(R.id.empresa);
+        btnRegistrarIncidencia = findViewById(R.id.btn_registrar_incidencia2);
+        cedula = findViewById(R.id.txt_cedula_registrar_incidencia1);
+        Categoria = (Spinner) findViewById(R.id.categoria_registrar);
+        Empresa = (Spinner) findViewById(R.id.empresa_registrar);
         SpinnerProvincia = (Spinner) findViewById(R.id.Provincias_Registrar);
         SpinnerCantonSJ = (Spinner) findViewById(R.id.Canton_Registrar);
         SpinnerCantonHE=(Spinner) findViewById(R.id.Canton_Registrar);
@@ -118,11 +118,11 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         SpinnerCantonCAR=(Spinner) findViewById(R.id.Canton_Registrar);
         SpinnerCantonALA=(Spinner) findViewById(R.id.Canton_Registrar);
         SpinnerDistrito = (Spinner) findViewById(R.id.Distrito_Registrar);
-        descripcion = findViewById(R.id.txt_descripcion_actualizar1);
-        txt_latitud = findViewById(R.id.txt_latitud);
-        txt_longitud = findViewById(R.id.txt_longitud);
-        foto = (ImageView) findViewById(R.id.img_incidencia);
-        btnElegirFoto = (Button) findViewById(R.id.btn_subirFoto);
+        descripcion = findViewById(R.id.txt_descripcion_registrar);
+        txt_latitud = findViewById(R.id.txt_latitud_registrar);
+        txt_longitud = findViewById(R.id.txt_longitud_registrar);
+        foto = (ImageView) findViewById(R.id.img_incidencia_registrar);
+        btnElegirFoto = (Button) findViewById(R.id.btn_subirFoto_registrar);
 
         Categoria.setOnItemSelectedListener(this);
         adapterCategoria = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,CategoriaItems);
@@ -175,7 +175,7 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         if(savedInstanceState != null){
             mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY);
         }
-        mapa = findViewById(R.id.mapView_actualizar1);
+        mapa = findViewById(R.id.mapView_registrar);
 
         mapa.onCreate(mapViewBundle);
         mapa.getMapAsync(this);

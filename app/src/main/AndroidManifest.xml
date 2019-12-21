@@ -28,7 +28,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.MenuPrincipalActivity" />
         </activity>
-        <activity android:name=".ActivarUsuarioActivity" />
+        <activity android:name=".ActivarUsuarioActivity" android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.appincidencias.LoginActivity" />
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -48,7 +52,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.MenuPrincipalActivity" />
         </activity>
-        <activity android:name=".RegistrarUsuarioActivity" />
+        <activity android:name=".RegistrarUsuarioActivity" android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.appincidencias.MainActivity" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,10 +64,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuPrincipalActivity" />
+        <activity android:name=".MenuPrincipalActivity" android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.appincidencias.LoginActivity" />
+        </activity>
         <activity android:name=".ActualizarIncidencia1Activity" />
         <activity android:name=".ActualizarIncidencia2Activity" />
-        <activity android:name=".listas" />
+        <activity android:name=".ListaIncidenciasActivity" android:parentActivityName=".MenuPrincipalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.appincidencias.MenuPrincipalActivity" />
+        </activity>
     </application>
 
 </manifest>

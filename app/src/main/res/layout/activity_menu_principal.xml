@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".MenuPrincipalActivity" >
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tlbr_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <TextView
         android:id="@+id/txt_opcion"
         android:layout_width="match_parent"
@@ -29,6 +37,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageButton
@@ -40,13 +49,6 @@
                 android:gravity="center|center_vertical"
                 app:srcCompat="@drawable/btn_incidencias" />
 
-            <Button
-                android:id="@+id/btn_registrar_incidencia_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="@string/txt_registrar_incidencia" />
-
             <ImageButton
                 android:id="@+id/btn_actualizar_incidencia_menu"
                 android:layout_width="wrap_content"
@@ -55,6 +57,14 @@
                 android:background="@android:color/transparent"
                 android:gravity="center|center_vertical"
                 app:srcCompat="@drawable/btn_actualizar" />
+
+            <Button
+                android:id="@+id/btn_lista_incidencias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/titulo_Listas" />
+
         </LinearLayout>
 
         <LinearLayout

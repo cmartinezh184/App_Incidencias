@@ -23,8 +23,8 @@ public class EmailSender extends AsyncTask {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.port", 587);
-        properties.put("mail.smtp.mail.sender","pruebasulacit@gmail.com");
-        properties.put("mail.smtp.user", "pruebasulacit@gmail.com");
+        properties.put("mail.smtp.mail.sender","correoproyectosu@gmail.com");
+        properties.put("mail.smtp.user", "correoproyectosu@gmail.com");
         properties.put("mail.smtp.auth", "true");
 
         session = Session.getDefaultInstance(properties);
@@ -48,7 +48,7 @@ public class EmailSender extends AsyncTask {
             message.setSubject("Activacion de Usuario App Incidencias");
             message.setText(body);
             Transport t = session.getTransport("smtp");
-            t.connect("smtp.gmail.com", "pruebasulacit@gmail.com", "Ulacit2019.");
+            t.connect("smtp.gmail.com", "correoproyectosu@gmail.com", "Ulacit2019.");
             t.sendMessage(message, message.getAllRecipients());
             t.close();
         }catch (Exception me){

@@ -1,6 +1,7 @@
 package com.example.appincidencias;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,11 @@ public class ActivarUsuarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activar_usuario);
+
+        androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.tlbcr_activar_usuario);
+        setSupportActionBar(toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         ws = new IncidenciasWS(getApplicationContext());
 
