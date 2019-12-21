@@ -25,7 +25,6 @@ public class ActivarUsuarioActivity extends AppCompatActivity {
 
     private EditText codigo;
     private Button btn_actualizar;
-    private IncidenciasWS ws;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +35,6 @@ public class ActivarUsuarioActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        ws = new IncidenciasWS(getApplicationContext());
 
         codigo = (EditText) findViewById(R.id.txt_codigo_activacion);
         btn_actualizar = (Button) findViewById(R.id.btn_activar_usuario);

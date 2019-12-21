@@ -26,15 +26,11 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private EditText correo, contrasenia;
     private TextView log;
-    private IncidenciasWS ws;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        // Se llama al web service
-        ws = new IncidenciasWS(getApplicationContext());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);

@@ -33,7 +33,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements Adapt
     private TextView Cedula, Nombre, PrimerApellido, SegundoApellido, DireccionID, Correo, Telefono, Contrasenia;
     private Spinner SpinnerProvincia, SpinnerDistrito, SpinnerCantonSJ, SpinnerCantonHE, SpinnerCantonLI, SpinnerCantonGUA, SpinnerCantonPUN, SpinnerCantonCAR, SpinnerCantonALA;
     private ArrayAdapter<String> adapterProvincia, adapterDistrito, adapterCantonSJ, adapterCantonHE, adapterCantonLI, adapterCantonGUA, adapterCantonPUN,adapterCantonCAR, adapterCantonALA;
-    private IncidenciasWS ws;
     private Persona usuario;
 
     //Items Provincias
@@ -57,8 +56,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements Adapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_usuario);
 
-        // Web Service
-        ws = new IncidenciasWS(getApplicationContext());
         usuario = new Persona();
 
         androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.tlbr_registrar_usuario);
