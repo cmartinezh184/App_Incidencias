@@ -96,6 +96,11 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualizar_incidencia);
 
+        androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.tlbr_act_incidencia);
+        setSupportActionBar(toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         btnActualizarIncidencia = findViewById(R.id.btn_actualizar_incidencia2);
         cedula = findViewById(R.id.txt_cedula_actualizar_incidencia);
         Categoria = (Spinner) findViewById(R.id.categoria_actualizar);
@@ -166,15 +171,10 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
         if(savedInstanceState != null){
             mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY);
         }
-        mapa = findViewById(R.id.mapView_registrar);
+        mapa = findViewById(R.id.mapView_actualizar);
 
         mapa.onCreate(mapViewBundle);
         mapa.getMapAsync(this);
-
-        Toolbar toolbar = findViewById(R.id.tlbr_reg_incidencia);
-        setSupportActionBar(toolbar);
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         btnElegirFoto.setOnClickListener(new View.OnClickListener() {
             @Override

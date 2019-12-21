@@ -22,7 +22,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ActualizarIncidenciaActivity"></activity>
+        <activity
+            android:name=".ActualizarIncidenciaActivity"
+            android:parentActivityName=".MenuPrincipalActivity">
+        </activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.appincidencias.MenuPrincipalActivity" />
         <activity
             android:name=".AgregarIncidenciaActivity"
             android:parentActivityName=".MenuPrincipalActivity">
