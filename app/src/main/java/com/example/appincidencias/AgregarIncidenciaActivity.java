@@ -212,7 +212,8 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
                             .addParameter("empresa", adapterEmpresa.getItem(Empresa.getSelectedItemPosition()))
                             .setNotificationConfig(new UploadNotificationConfig())
                             .startUpload();
-                    //startActivity(new Intent(AgregarIncidenciaActivity.this, MenuPrincipalActivity.class));
+                    Toast.makeText(getApplicationContext(), "Incidencia Registrada", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(AgregarIncidenciaActivity.this, MenuPrincipalActivity.class));
                 } catch (Exception e){
                     Toast.makeText(getApplicationContext(), "No se ha podido registrar la incidencia", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(AgregarIncidenciaActivity.this, AgregarIncidenciaActivity.class));

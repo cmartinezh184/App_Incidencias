@@ -57,8 +57,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuPrincipalActivity" />
-        <activity android:name=".AgregarIncidencia1Activity" />
-        <activity android:name=".AgregarIncidencia2Activity" />
         <activity android:name=".ActualizarIncidencia1Activity" />
         <activity android:name=".ActualizarIncidencia2Activity" />
         <activity android:name=".listas" />

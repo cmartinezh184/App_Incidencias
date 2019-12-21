@@ -37,12 +37,7 @@ public class ActualizarIncidencia2Activity extends AppCompatActivity {
             btnActualizar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ActualizarIncidencia(v)) {
-                        startActivity(new Intent(ActualizarIncidencia2Activity.this, MenuPrincipalActivity.class));
-                        Toast.makeText(null, "Incidencia actualizada correctamente", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(null, "No se ha podido registrar la incidencia", Toast.LENGTH_LONG).show();
-                    }
+
                 }
             });
         } catch (Exception e) {
@@ -50,41 +45,6 @@ public class ActualizarIncidencia2Activity extends AppCompatActivity {
         }
     }
 
-    private boolean ActualizarIncidencia(View v) {
-        DBHelper conn = new DBHelper(this, "Usuario", null, 1);
-        SQLiteDatabase db = conn.getWritableDatabase();
 
-        Incidencia incidencia = new Incidencia();
-
-        incidencia.setDescripcion(descripcion.getText().toString());
-        incidencia.setIdUsuario(cedula);
-        incidencia.setIdIncidencia(idIncidencia);
-
-        if(!incidencia.getDescripcion().isEmpty() || incidencia.getIdUsuario() != 0 /*|| !incidencia.getUbicacion().isEmpty()*/){
-            ContentValues valores = new ContentValues();
-            valores.put("Ubicacion", ubicacion.getText().toString());
-            valores.put("Descripcion", descripcion.getText().toString());
-            valores.put("idIncidencia", idIncidencia);
-            valores.put("idPersona", cedula);
-
-            int cantidad = db.update("Incidencia", valores, "cedula =" + cedula, null);
-            db.close();
-
-            if (cantidad == 1) {
-                Toast.makeText(this, "Incidencia agregada exitosamente", Toast.LENGTH_LONG).show();
-                return true;
-            }
-
-            Toast.makeText(this, "Ha ocurrido un error",
-                    Toast.LENGTH_LONG).show();
-
-            return false;
-        }
-
-        Toast.makeText(this, "Debe llenar todos los campos",
-                Toast.LENGTH_LONG).show();
-        return false;
-
-    }
 }
 

@@ -48,7 +48,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements Adapt
     String CantonAlajuela[]={"Atenas","Grecia","Guatuso"};
 
     //Items Distritos
-    String DistritosSanJose[]={"San Jose","San Antonio","Granadilla","San Rafael Arriba"};
+    String[] DistritosSanJose={"San Jose","San Antonio","Granadilla","San Rafael Arriba"};
 
 
     @Override
@@ -161,7 +161,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements Adapt
                                 parametros.put("segundo_apellido", SegundoApellido.getText().toString());
                                 parametros.put("correo", Correo.getText().toString());
                                 parametros.put("telefono", Telefono.getText().toString());
-                                parametros.put("distrito_id", adapterDistrito.getItem(SpinnerDistrito.getSelectedItemPosition()));
+                                parametros.put("distrito_id", SpinnerDistrito.getSelectedItemPosition() + "");
                                 parametros.put("direccion", DireccionID.getText().toString());
                                 parametros.put("contrasenia", Contrasenia.getText().toString());
                                 parametros.put("codigo", codigoActivacion + "");
@@ -186,7 +186,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements Adapt
 
     @Override
     public void onItemSelected(AdapterView<?> adapter, View view, int position, long arg3) {
-        //Toast.makeText(this,"Posición: "+position,Toast.LENGTH_LONG).show();
         switch (adapter.getId()){
             case R.id.Provincias_Usuario:
                 switch(position){
