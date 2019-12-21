@@ -193,14 +193,11 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
                 try{
                     String uploadID = UUID.randomUUID().toString();
 
-                    new MultipartUploadRequest(getApplicationContext(), uploadID, "http://54.227.173.39/Incidencias/RegistrarIncidencia.php")
+                    new MultipartUploadRequest(getApplicationContext(), uploadID, "http://54.227.173.39/Incidencias/ActualizarIncidencia.php")
                             .addFileToUpload(path, "foto")
-                            .addParameter("usuario_id", cedula.getText().toString())
                             .addParameter("descripcion", descripcion.getText().toString())
                             .addParameter("latitud", txt_latitud.getText().toString())
                             .addParameter("longitud", txt_longitud.getText().toString())
-                            .addParameter("categoria", adapterCategoria.getItem(Categoria.getSelectedItemPosition()))
-                            .addParameter("empresa", adapterEmpresa.getItem(Empresa.getSelectedItemPosition()))
                             .setNotificationConfig(new UploadNotificationConfig())
                             .startUpload();
                     Toast.makeText(getApplicationContext(), "Incidencia Registrada", Toast.LENGTH_LONG).show();
