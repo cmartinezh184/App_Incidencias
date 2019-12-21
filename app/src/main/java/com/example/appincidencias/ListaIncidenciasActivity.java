@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -34,14 +35,15 @@ public class ListaIncidenciasActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         listaIncidencias = (ListView) findViewById(R.id.listView_incidencias);
 
         cargarLista();
     }
 
-    private boolean cargarLista(){
+    private void cargarLista(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        final ArrayList<String> lista = new ArrayList<>();
+        final ArrayList<String> listaIncidenciasDB = new ArrayList<>();
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://54.227.173.39/Incidencias/EnlistarIncidencias.php", null, new Response.Listener<JSONArray>() {
 
             @Override
@@ -56,13 +58,17 @@ public class ListaIncidenciasActivity extends AppCompatActivity {
                     }
 
                     String objectString = object.optString("incidencia_id", "N/A")
-                            + " - " + object.optString("descripcion", "N/A")
-                            + " - " + object.optString("latitud", "N/A")
-                            + " - " + object.optString("longitud", "N/A")
-                            + " - " + object.optString("categoria", "N/A")
-                            + " - " + object.optString("empresa", "N/A");
-                    lista.add(objectString);
+                            + " - Detalle: " + object.optString("descripcion", "N/A")
+                            + " - LAT: " + object.optString("latitud", "N/A")
+                            + " - LONG: " + object.optString("longitud", "N/A")
+                            + " - Categ: " + object.optString("categoria", "N/A")
+                            + " - Empresa: " + object.optString("empresa", "N/A");
+                    listaIncidenciasDB.add(objectString);
                 }
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(ListaIncidenciasActivity.this, android.R.layout.simple_list_item_1, listaIncidenciasDB);
+                listaIncidencias.setAdapter(arrayAdapter);
+                arrayAdapter.notifyDataSetChanged();
 
             }
         }, new Response.ErrorListener(){
@@ -72,13 +78,10 @@ public class ListaIncidenciasActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lista);
-        listaIncidencias.setAdapter(arrayAdapter);
-        arrayAdapter.notifyDataSetChanged();
+
 
         queue.add(jsonArrayRequest);
 
-        return true;
     }
 
 
