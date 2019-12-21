@@ -22,13 +22,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AgregarIncidenciaActivity"
+        <activity android:name=".ActualizarIncidenciaActivity"></activity>
+        <activity
+            android:name=".AgregarIncidenciaActivity"
             android:parentActivityName=".MenuPrincipalActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.MenuPrincipalActivity" />
         </activity>
-        <activity android:name=".ActivarUsuarioActivity" android:parentActivityName=".LoginActivity">
+        <activity
+            android:name=".ActivarUsuarioActivity"
+            android:parentActivityName=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.LoginActivity" />
@@ -52,7 +56,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.MenuPrincipalActivity" />
         </activity>
-        <activity android:name=".RegistrarUsuarioActivity" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".RegistrarUsuarioActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.MainActivity" />
@@ -64,14 +70,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuPrincipalActivity" android:parentActivityName=".LoginActivity">
+        <activity
+            android:name=".MenuPrincipalActivity"
+            android:parentActivityName=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.LoginActivity" />
         </activity>
-        <activity android:name=".ActualizarIncidencia1Activity" />
-        <activity android:name=".ActualizarIncidencia2Activity" />
-        <activity android:name=".ListaIncidenciasActivity" android:parentActivityName=".MenuPrincipalActivity">
+        <activity
+            android:name=".ListaIncidenciasActivity"
+            android:parentActivityName=".MenuPrincipalActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.appincidencias.MenuPrincipalActivity" />

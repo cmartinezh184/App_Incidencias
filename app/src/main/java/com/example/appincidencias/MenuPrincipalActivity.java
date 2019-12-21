@@ -49,7 +49,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         actualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuPrincipalActivity.this, ActualizarIncidencia1Activity.class));
+                startActivity(new Intent(MenuPrincipalActivity.this, ActualizarIncidenciaActivity.class));
             }
         });
     }
