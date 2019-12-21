@@ -34,6 +34,9 @@
     <string name="txt_registrar_incidencia">Registrar Incidencia</string>
     <string name="txt_incidencia">Incidencia</string>
     <string name="txt_actualizar_incidencia">Actualizar Incidencia</string>
+    <string name="txt_activar_usuario">Activar Usuario</string>
+    <string name="txt_codigo_activacion">Codigo de activación</string>
+    <string name="txt_activar">Activar</string>
 
 </resources>
 

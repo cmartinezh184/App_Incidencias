@@ -2,87 +2,96 @@ package com.example.appincidencias;
 
 public class Persona {
 
-    private int Cedula;
-    private String Nombre;
-    private String PrimerApellido;
-    private String SegundoApellido;
-    private int DireccionID;
-    private String Correo;
-    private int Telefono;
-    private String Contrasenia;
+    private int cedula;
+    private String primerNombre;
+    private String segundoNombre;
+    private String primerApellido;
+    private String segundoApellido;
+    private int distritoID;
+    private String direccion;
+    private String correo;
+    private int telefono;
+    private String contrasenia;
 
-    public Persona(int cedula, String nombre, String primerApellido, String segundoApellido, int direccionID, String correo, int telefono, String contrasenia) {
-        Cedula = cedula;
-        Nombre = nombre;
-        PrimerApellido = primerApellido;
-        SegundoApellido = segundoApellido;
-        DireccionID = direccionID;
-        Correo = correo;
-        Telefono = telefono;
-        Contrasenia = contrasenia;
-    }
+    public Persona(){}
 
     public int getCedula() {
-        return Cedula;
+        return cedula;
     }
 
     public void setCedula(int cedula) {
-        Cedula = cedula;
+        this.cedula = cedula;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public String getPrimerNombre() {
+        return primerNombre;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setPrimerNombre(String primerNombre) {
+        this.primerNombre = primerNombre;
+    }
+
+    public String getSegundoNombre() {
+        return segundoNombre;
+    }
+
+    public void setSegundoNombre(String segundoNombre) {
+        this.segundoNombre = segundoNombre;
     }
 
     public String getPrimerApellido() {
-        return PrimerApellido;
+        return primerApellido;
     }
 
     public void setPrimerApellido(String primerApellido) {
-        PrimerApellido = primerApellido;
+        this.primerApellido = primerApellido;
     }
 
     public String getSegundoApellido() {
-        return SegundoApellido;
+        return segundoApellido;
     }
 
     public void setSegundoApellido(String segundoApellido) {
-        SegundoApellido = segundoApellido;
+        this.segundoApellido = segundoApellido;
     }
 
-    public int getDireccionID() {
-        return DireccionID;
+    public int getDistritoID() {
+        return distritoID;
     }
 
-    public void setDireccionID(int direccionID) {
-        DireccionID = direccionID;
+    public void setDistritoID(int distritoID) {
+        this.distritoID = distritoID;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getCorreo() {
-        return Correo;
+        return correo;
     }
 
     public void setCorreo(String correo) {
-        Correo = correo;
+        this.correo = correo;
     }
 
     public int getTelefono() {
-        return Telefono;
+        return telefono;
     }
 
     public void setTelefono(int telefono) {
-        Telefono = telefono;
+        this.telefono = telefono;
     }
 
     public String getContrasenia() {
-        return Contrasenia;
+        return contrasenia;
     }
 
     public void setContrasenia(String contrasenia) {
-        Contrasenia = contrasenia;
+        this.contrasenia = contrasenia;
     }
 }

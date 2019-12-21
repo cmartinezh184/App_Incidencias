@@ -6,13 +6,15 @@ public class Incidencia {
 
     private int idIncidencia, idUsuario;
     private String descripcion;
-    private String ubicacion;
+    private String latitud;
+    private String longitud;
 
-    public Incidencia(int idIncidencia, int idUsuario, int direccionId, String descripcion, String ubicacion) {
+    public Incidencia(int idIncidencia, int idUsuario, String descripcion, String latitud, String longitud) {
         this.idIncidencia = idIncidencia;
         this.idUsuario = idUsuario;
         this.descripcion = descripcion;
-        this.ubicacion = ubicacion;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public Incidencia(){}
@@ -41,11 +43,19 @@ public class Incidencia {
         this.descripcion = descripcion;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public String getLatitud() {
+        return latitud;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
     }
 }

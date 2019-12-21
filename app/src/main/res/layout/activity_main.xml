@@ -5,72 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="15dp"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="265dp"
-        app:srcCompat="@drawable/icono" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_titulo"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textSize="36sp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_bienvenida"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/cuenta" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_login_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10px"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:text="@string/btn_iniciarSesion" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="265dp"
+                app:srcCompat="@drawable/icono" />
 
-            <Button
-                android:id="@+id/btn_registrarse_main"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10px"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20px"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:text="@string/btn_registrarse"
-                android:textColor="@color/colorPrimary" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_titulo"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_bienvenida"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/cuenta" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_login_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10px"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:text="@string/btn_iniciarSesion" />
+
+                    <Button
+                        android:id="@+id/btn_registrarse_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20px"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent"
+                        android:text="@string/btn_registrarse"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
 </LinearLayout>
