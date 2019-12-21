@@ -19,6 +19,9 @@ public class EmailSender extends AsyncTask {
     private Session session;
     private int codigo;
 
+    /**
+     * Puerto y cliente de correo a utilizar
+     */
     private void init() {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.starttls.enable", "true");
@@ -38,6 +41,7 @@ public class EmailSender extends AsyncTask {
     public void sendMail(String correo, int codigo) {
         init();
 
+        // Mensaje a enviar
         String body = "¡Bienvenido a la App de Incidencias!\n\nA continuacion se le presenta el" +
                 "codigo de activacion de su nueva cuenta:\n\n" + codigo
                 + "\n\nGracias!";
@@ -57,6 +61,11 @@ public class EmailSender extends AsyncTask {
         }
     }
 
+    /**
+     * Se corre como un hilo en el fondo del proyecto
+     * @param objects
+     * @return
+     */
     @Override
     protected Object doInBackground(Object[] objects) {
         sendMail(this.email, this.codigo);

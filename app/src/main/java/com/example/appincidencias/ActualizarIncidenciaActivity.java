@@ -96,11 +96,13 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualizar_incidencia);
 
+        // Se le da la funcionalidad al Toolbar de la pantalla
         androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.tlbr_act_incidencia);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        // Objetos de la GUI
         btnActualizarIncidencia = findViewById(R.id.btn_actualizar_incidencia2);
         cedula = findViewById(R.id.txt_cedula_actualizar_incidencia);
         Categoria = (Spinner) findViewById(R.id.categoria_actualizar);
@@ -120,6 +122,7 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
         foto = (ImageView) findViewById(R.id.img_incidencia_actualizar);
         btnElegirFoto = (Button) findViewById(R.id.btn_subirFoto_actualizar);
 
+        // Declaracion de los spinners
         Categoria.setOnItemSelectedListener(this);
         adapterCategoria = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,CategoriaItems);
         Categoria.setAdapter(adapterCategoria);
@@ -165,6 +168,7 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
         adapterDistrito = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,DistritosSanJose);
         SpinnerDistrito.setAdapter(adapterDistrito);
 
+        // Objeto para la localizacion
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         Bundle mapViewBundle = null;
@@ -176,6 +180,7 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
         mapa.onCreate(mapViewBundle);
         mapa.getMapAsync(this);
 
+        // Boton de elegir foto
         btnElegirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,6 +190,7 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
             }
         });
 
+        // Boton de actualizar la incidencia
         btnActualizarIncidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -193,6 +199,7 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
                 try{
                     String uploadID = UUID.randomUUID().toString();
 
+                    // Se sube la foto con los parametros necesarios
                     new MultipartUploadRequest(getApplicationContext(), uploadID, "http://54.227.173.39/Incidencias/ActualizarIncidencia.php")
                             .addFileToUpload(path, "foto")
                             .addParameter("descripcion", descripcion.getText().toString())
@@ -210,6 +217,9 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
         });
     }
 
+    /**
+     * Se obtiene la ultima localizacion
+     */
     @SuppressLint("MissingPermission")
     private void getLastLocation(){
         if (checkPermissions()) {
@@ -266,6 +276,7 @@ public class ActualizarIncidenciaActivity extends AppCompatActivity implements O
     }
 
 
+    // Se piden los permisos
 
     private boolean checkPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&

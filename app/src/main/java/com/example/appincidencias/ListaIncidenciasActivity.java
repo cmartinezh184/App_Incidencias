@@ -31,16 +31,21 @@ public class ListaIncidenciasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_incidencias);
 
+        // Se le da la funcionalidad al Toolbar de la pantalla
         androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.tlbr_lista);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        // Objetos de la GUI
         listaIncidencias = (ListView) findViewById(R.id.listView_incidencias);
 
         cargarLista();
     }
 
+    /**
+     * Metodo para cargar la lista al View
+     */
     private void cargarLista(){
         RequestQueue queue = Volley.newRequestQueue(this);
         final ArrayList<String> listaIncidenciasDB = new ArrayList<>();

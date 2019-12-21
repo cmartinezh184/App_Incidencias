@@ -31,11 +31,13 @@ public class ActivarUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activar_usuario);
 
+        // Se le da la funcionalidad al Toolbar de la pantalla
         androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.tlbcr_activar_usuario);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        // Objetos de la GUI
         codigo = (EditText) findViewById(R.id.txt_codigo_activacion);
         btn_actualizar = (Button) findViewById(R.id.btn_activar_usuario);
 

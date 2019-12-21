@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        // Creacion de los botones para el cambio de pantalla
+
+        // Objetos de la GUI
         registrar = (Button)findViewById(R.id.btn_registrarse_main);
         login = (Button)findViewById(R.id.btn_login_main);
 

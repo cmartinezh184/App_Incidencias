@@ -105,6 +105,7 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_incidencia);
 
+        // Objetos de la GUI
         btnRegistrarIncidencia = findViewById(R.id.btn_registrar_incidencia2);
         cedula = findViewById(R.id.txt_cedula_registrar_incidencia1);
         Categoria = (Spinner) findViewById(R.id.categoria_registrar);
@@ -124,6 +125,7 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         foto = (ImageView) findViewById(R.id.img_incidencia_registrar);
         btnElegirFoto = (Button) findViewById(R.id.btn_subirFoto_registrar);
 
+        // Declaracion de los Spinners
         Categoria.setOnItemSelectedListener(this);
         adapterCategoria = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,CategoriaItems);
         Categoria.setAdapter(adapterCategoria);
@@ -169,6 +171,7 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         adapterDistrito = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,DistritosSanJose);
         SpinnerDistrito.setAdapter(adapterDistrito);
 
+        // Objeto para la localizacion
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         Bundle mapViewBundle = null;
@@ -180,11 +183,13 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         mapa.onCreate(mapViewBundle);
         mapa.getMapAsync(this);
 
+        // Se le da la funcionalidad al Toolbar de la pantalla
         Toolbar toolbar = findViewById(R.id.tlbr_reg_incidencia);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        // Boton de elegir la foto
         btnElegirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -194,6 +199,7 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
             }
         });
 
+        // Boton para registrar la incidencia
         btnRegistrarIncidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,6 +228,9 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
         });
     }
 
+    /**
+     * Se obtiene la ultima localizacion
+     */
     @SuppressLint("MissingPermission")
     private void getLastLocation(){
         if (checkPermissions()) {
@@ -277,7 +286,7 @@ public class AgregarIncidenciaActivity extends AppCompatActivity implements OnMa
 
     }
 
-
+    // Se piden los permisos para la localizacion y las fotos
 
     private boolean checkPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&

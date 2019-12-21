@@ -32,10 +32,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Se le da la funcionalidad al Toolbar de la pantalla
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        // Objetos de la GUI
         this.correo = findViewById(R.id.txt_correo2);
         this.contrasenia = findViewById(R.id.txt_contrasenia2);
         this.login = findViewById(R.id.btn_iniciarSesion2);
@@ -93,23 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                     // Se hace la consulta
                     requestQueue.start();
                     requestQueue.add(stringRequest);
-
-                    /*int logInState = ws.logIn(correo.getText().toString(), contrasenia.getText().toString());
-                    if(logInState == 1) {
-                        startActivity(new Intent(LoginActivity.this, MenuPrincipalActivity.class));
-                        Toast.makeText(LoginActivity.this, "Bienvenido", Toast.LENGTH_LONG).show();
-                    } else if(logInState == 0) {
-                        Bundle bundle = new Bundle();
-                        Intent intent = new Intent(LoginActivity.this, ActivarUsuarioActivity.class);
-                        intent.putExtra("correo", correo.getText().toString()); // Se envia el correo del usuario a la siguiente actividad
-                        startActivity(intent);
-                    } else if(logInState == -2){
-                        Toast.makeText(LoginActivity.this,"No sirve", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Credenciales incorrectos", Toast.LENGTH_LONG).show();
-                        correo.setText("");
-                        contrasenia.setText("");
-                    }*/
 
                 }
             });
